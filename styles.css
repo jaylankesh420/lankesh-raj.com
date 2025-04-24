@@ -1,0 +1,325 @@
+/* Global Styles */
+:root {
+    --primary-color: #4e54c8;
+    --secondary-color: #8f94fb;
+    --dark-color: #333;
+    --light-color: #f4f4f4;
+    --glow-color-1: #ff00ff;
+    --glow-color-2: #00ffff;
+    --glow-color-3: #ffff00;
+    --glow-color-4: #ff00aa;
+    --glow-color-5: #00ffaa;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+/* Navigation */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(78, 84, 200, 0.3);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.nav-link:hover::before {
+    transform: translateX(100%);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 8rem 0 4rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.hero .lead {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Course Cards */
+.course-card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--glow-color-1), var(--glow-color-2), var(--glow-color-3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.course-card:hover::before {
+    opacity: 0.1;
+}
+
+.course-card i {
+    color: var(--primary-color);
+}
+
+/* About Section */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact-info {
+    padding: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 1rem;
+}
+
+/* Form Styles */
+.form-control {
+    border-radius: 10px;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(78, 84, 200, 0.25);
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    transition: transform 0.6s ease;
+}
+
+.btn-primary:hover::after {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: white;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.hero img {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Glowing Effects */
+.glow-effect {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--glow-color-1), 
+        var(--glow-color-2), 
+        var(--glow-color-3),
+        var(--glow-color-4),
+        var(--glow-color-5));
+    background-size: 400%;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: gradient-shift 8s linear infinite;
+}
+
+.glow-effect:hover::before {
+    opacity: 0.7;
+    animation: glow-pulse 2s infinite, gradient-shift 8s linear infinite;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0 0 5px var(--glow-color-1),
+                    0 0 10px var(--glow-color-2),
+                    0 0 15px var(--glow-color-3),
+                    0 0 20px var(--glow-color-4);
+    }
+    50% {
+        box-shadow: 0 0 10px var(--glow-color-1),
+                    0 0 20px var(--glow-color-2),
+                    0 0 30px var(--glow-color-3),
+                    0 0 40px var(--glow-color-4);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--glow-color-1),
+                    0 0 10px var(--glow-color-2),
+                    0 0 15px var(--glow-color-3),
+                    0 0 20px var(--glow-color-4);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero .lead {
+        font-size: 1.2rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+    }
+    
+    .stat-item {
+        margin-bottom: 1rem;
+    }
+} 
